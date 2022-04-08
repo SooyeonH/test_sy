@@ -1,21 +1,29 @@
 package com.javalec.team.dto;
 
 public class OrderpageCategory_dto {
+	String oCode;
 	String user_uId;
 	String pImg_main;
 	String pName ;
 	String oQuantity ;
 	String oPrice ;
 	String oDecision ;
-	public OrderpageCategory_dto(String user_uId, String pImg_main, String pName, String oQuantity, String oPrice,
-			String oDecision) {
+	public OrderpageCategory_dto(String oCode, String user_uId, String pImg_main, String pName, String oQuantity,
+			String oPrice, String oDecision) {
 		super();
+		this.oCode = oCode;
 		this.user_uId = user_uId;
 		this.pImg_main = pImg_main;
 		this.pName = pName;
 		this.oQuantity = oQuantity;
 		this.oPrice = oPrice;
 		this.oDecision = oDecision;
+	}
+	public String getoCode() {
+		return oCode;
+	}
+	public void setoCode(String oCode) {
+		this.oCode = oCode;
 	}
 	public String getUser_uId() {
 		return user_uId;

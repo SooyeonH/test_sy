@@ -115,7 +115,10 @@
 		<td>010-<input type="text" name="uPhone1" size="4" value="${content_view.uPhone1 }" >-<input type="text" name="uPhone2" size="4" value="${content_view.uPhone2 }" ></td></tr>
 		<tr align="left">
 		<td>주소 :</td> 
-		<td><input type="text" name="uAddress" size="20" value="${content_view.uAddress }" ></td></tr>
+		<td><input type="text" name="uAddress" size="20" value="${content_view.uAddress }" >
+		
+	
+		<button type="button" onClick="goPopup();"> 주소찾기</button></td></tr>
 		<tr align="left">
 		<td>계좌 :</td> 
 		<td>
@@ -140,6 +143,24 @@
 		<table><tr><td><input type="submit" value="탈퇴하기"></td>
 	</tr></table>
 	</form>
+	<script>
+
+	function goPopup(){
+   // 주소검색을 수행할 팝업 페이지를 호출합니다.
+   // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+   var pop = window.open("/Test/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+    
+	}
+
+	function jusoCallBack(zipNo,roadFullAddr){
+         var zipNoEl = document.querySelector("#uAddress");
+         var addressEl = document.querySelector("#uAddress");
+         zipNoEl.value=zipNo;
+         addressEl.value=roadFullAddr;
+      
+	}
+
+</script>
 	
 	
 

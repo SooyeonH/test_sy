@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.javalec.bbs.command.modify;
 import com.javalec.team.command.MPchange_Command;
 import com.javalec.team.command.MPdelete_Command;
 import com.javalec.team.command.MPinformation_Command;
 import com.javalec.team.command.OrderpageCategory_Command;
 import com.javalec.team.command.PCommand;
-import com.javalec.team.command.ServiceCenter1vs1_Command;
+import com.javalec.team.command.ReviewWritepage_Command;
+
 
 /**
  * Servlet implementation class homecontroller
@@ -62,9 +62,42 @@ public class homecontroller extends HttpServlet {
 //		System.out.println(conPath);
 //		System.out.println(com);
 		
+	switch(com) {
+	case ("/mpInformation.do"): //나의정보 보여주기
+		command = new MPinformation_Command(); 
+		command.execute(request, response);
+		viewPage ="mypageInformation.jsp";
+		break;
 		
+	case("/mpchange.do"): //내정보 수정
+		command = new MPchange_Command();
+		command.execute(request, response);
+		viewPage="mpInformation.do";
+		break;
 		
+	case("/mpdelete.do"): //탈퇴
+		command = new MPdelete_Command();
+		command.execute(request, response);
+		viewPage = "mainpage.jsp"; //do로 해서 다시 케이스1에 들어가도록!! jsp 아님!!!!!
+		break;
+		
+	case ("/orderpageCategory.do"): //나의주문정보
+		command = new OrderpageCategory_Command(); 
+		command.execute(request, response);
+		viewPage ="orderpageCategory.jsp";
+		break;
+	
+	case ("/reviewWritepage.do"): //리뷰쓰는페이지 이동
+		viewPage="reviewWritepage.jsp";
+		break;
 
+	case("/reviewWrite.do")://리뷰디비에 저장
+		command = new ReviewWritepage_Command();
+		command.execute(request, response);
+		viewPage = "mainpage.jsp"; //do로 해서 다시 케이스1에 들어가도록!! jsp 아님!!!!!
+		break;
+		
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 		

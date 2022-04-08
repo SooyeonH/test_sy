@@ -95,152 +95,58 @@
 	<!-- Bread Crumb End -->
 	
 	<!-- 여기부터 넣으시면 됩니다 Start -->
+	<%String oCode=request.getParameter("oCode"); 
+	String pName=request.getParameter("pName"); 
+	%>
 	
-	<form action="serviceCenterWriteFinish.do" method="get">
-   <div class="container mb-6">
-      <div class="row justify-content-md-center">
-          <div class="col col-lg-6 ">
-               <div>
-                  <table>
-                     <tr>
-                        <td>문의구분 : </td>
-                        <td>
-                           <select name="iCode" id="email03" onchange="javascript:changed();" style='min-height:24px;'>
-                           <option value="상품문의">상품문의</option>
-                           <option value="배송문의">배송문의</option>
-                           <option value="주문문의">주문문의</option>
-                           <option value="A/S문의">A/S문의</option>
-                           <option value="기타문의">기타문의</option>
-                        </select>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>작성자 : </td>
-                        <td>
-                        <input type="text" name="user_uId" value="" size="62">
-                        </td>
-                     </tr>   
-                     <tr>
-                        <td>이메일 : </td>
-                        <td>
-                           <input type="text" name="user_uEmail" size="62" value="" />
-                     </td>
-                     </tr>
-                     <tr>
-                        <td>문의제목 : </td>
-                        <td><input name="iTitle" type="text" style="width:500px;"></td>
-                     </tr>
-                     <tr>
-                        <td>문의내용 : </td>
-                        <td><textarea name="iContent" id="content" title="내용" style="width:500px; height:300px;"></textarea></td>
-                     </tr>
-                  </table>
-            </div>
-          </div>
-          
-          <div class="col col-lg-1">
-             <div class="d-flex" style="height: 600px;">
-                 <div class="vr"></div>
-            </div>
-          </div>
-          <div class="col col-lg-3">
-            <div>
-               <p class="text01">고객 여러분께 알려드립니다.</p>
-               <p>
-                  콜센터로의 전화문의는 문의가 집중되는 오전 10시~오후 2시 시간대를 가급적 피해주시고, 번거로우시더라도 [1:1문의]를 활용해 주시면 고객님의 요청사항을 보다 정확하게 확인하여 신속하게 해결해 드리도록 하겠습니다.<br><br>
-                  * 상품에 문제가 있을시 사진과 함께 남겨주시면 보다 빠른확인이 가능합니다. 
-               </p>
-               <p class="text01">1:1문의 운영일/시간</p>
-               <p>평일: 오전 10시~12시/오후 1시~6시 | 토, 일요일, 공휴일 휴무</p>
-               <p class="text02">
-                  개인정보보호법 제21조에 따라 비회원 또는 타 쇼핑몰 주문 건에 대한 고객 정보는 주문 완료 시 파기됩니다.<br>
-                  AS/반품 등 상품 수령 후 문의에 대해서 주문 검색에 다소 제약이 있으니 이점 양해 바랍니다.
-               </p>
-            </div>
-          </div>
-      </div>
-      <div>
-         <div class="row justify-content-md-center mt-5">
-            <div class="col col-lg-2">
-               <input class="btn btn-dark btn-lg" type="submit" value="문의하다">
-            </div>
-         </div>
-      </div>
-    </div>
-</form>   v<form action="serviceCenterWriteFinish.do" method="get">
-   <div class="container mb-6">
-      <div class="row justify-content-md-center">
-          <div class="col col-lg-6 ">
-               <div>
-                  <table>
-                     <tr>
-                        <td>문의구분 : </td>
-                        <td>
-                           <select name="iCode" id="email03" onchange="javascript:changed();" style='min-height:24px;'>
-                           <option value="상품문의">상품문의</option>
-                           <option value="배송문의">배송문의</option>
-                           <option value="주문문의">주문문의</option>
-                           <option value="A/S문의">A/S문의</option>
-                           <option value="기타문의">기타문의</option>
-                        </select>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>작성자 : </td>
-                        <td>
-                        <input type="text" name="user_uId" value="" size="62">
-                        </td>
-                     </tr>   
-                     <tr>
-                        <td>이메일 : </td>
-                        <td>
-                           <input type="text" name="user_uEmail" size="62" value="" />
-                     </td>
-                     </tr>
-                     <tr>
-                        <td>문의제목 : </td>
-                        <td><input name="iTitle" type="text" style="width:500px;"></td>
-                     </tr>
-                     <tr>
-                        <td>문의내용 : </td>
-                        <td><textarea name="iContent" id="content" title="내용" style="width:500px; height:300px;"></textarea></td>
-                     </tr>
-                  </table>
-            </div>
-          </div>
-          
-          <div class="col col-lg-1">
-             <div class="d-flex" style="height: 600px;">
-                 <div class="vr"></div>
-            </div>
-          </div>
-          <div class="col col-lg-3">
-            <div>
-               <p class="text01">고객 여러분께 알려드립니다.</p>
-               <p>
-                  콜센터로의 전화문의는 문의가 집중되는 오전 10시~오후 2시 시간대를 가급적 피해주시고, 번거로우시더라도 [1:1문의]를 활용해 주시면 고객님의 요청사항을 보다 정확하게 확인하여 신속하게 해결해 드리도록 하겠습니다.<br><br>
-                  * 상품에 문제가 있을시 사진과 함께 남겨주시면 보다 빠른확인이 가능합니다. 
-               </p>
-               <p class="text01">1:1문의 운영일/시간</p>
-               <p>평일: 오전 10시~12시/오후 1시~6시 | 토, 일요일, 공휴일 휴무</p>
-               <p class="text02">
-                  개인정보보호법 제21조에 따라 비회원 또는 타 쇼핑몰 주문 건에 대한 고객 정보는 주문 완료 시 파기됩니다.<br>
-                  AS/반품 등 상품 수령 후 문의에 대해서 주문 검색에 다소 제약이 있으니 이점 양해 바랍니다.
-               </p>
-            </div>
-          </div>
-      </div>
-      <div>
-         <div class="row justify-content-md-center mt-5">
-            <div class="col col-lg-2">
-               <input class="btn btn-dark btn-lg" type="submit" value="문의하다">
-            </div>
-         </div>
-      </div>
-    </div>
-</form>   
-	<!-- End -->
-	
+	<form action="reviewWrite.do" method="get">
+	<table border="0">
+
+	<tr><td><input name="oCode" type="text" value="<%=oCode%>"></td></tr>
+	<tr>
+    <td>상품명 : </td>
+   	<td><%=pName%></td>
+    </tr>
+    <tr>
+   <td>작성자 : </td>
+   <td><%=session.getAttribute("UID")%></td>
+    </tr>   
+    <tr>
+   <td>리뷰제목 : </td>
+   <td><input name="rTitle" type="text" style="width:400px;"></td>
+   </tr>
+   <tr>
+    <td>리뷰내용 : </td>
+    <td><textarea name="rContent" id="rcontent" title="내용" style="width:400px; height:300px;"></textarea></td>
+     </tr>
+		<tr>
+		<td><input type="file" id="inp"></td>
+		<td><input type="text" id="imgTxt" name="imgFile" ></td>
+		<td><input type="submit" value="Upload"></td>
+		</tr>
+		<tr>
+		<td>
+	<input type="submit" value="리뷰등록"></td></tr>
+     </table>
+	</form>
+	<script type="text/javascript">
+	function readFile() {
+	  
+	  if (this.files && this.files[0]) {
+	    
+	    var FR= new FileReader();
+	    
+	    FR.onload = function(e) {
+	      document.getElementById("imgTxt").value = e.target.result;
+	     // alert(document.getElementById("imgTxt").value)
+	    }; 
+	    
+	    FR.readAsDataURL( this.files[0] );
+	  }
+	  
+	}
+	document.getElementById("inp").addEventListener("change", readFile);
+</script>
 	<!-- Footer start -->
 	<footer >
 		<div class="card" style="background-color: #696464; color: #E9E5DD;">

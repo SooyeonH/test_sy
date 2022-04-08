@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <!-- 부트스트랩 css -->
@@ -97,28 +98,76 @@
 	<!-- 여기부터 넣으시면 됩니다 Start -->
 		
 				
-	<h2>나의 주문 정보</h2>
-	<form action="reviewWritepage.do" method="post">
-	<table>
-	<tr align="left">
-		
-		<td> ${content_view.pImg_main}</td>
-		
-		<td> ${content_view.pName } </td>
-		
-		<td> ${content_view.oQuantity } </td>
-	
-		<td>${content_view.oPrice }  </td>
-		
-		<td>${content_view.oDecision } </td>
-	
-		
-		<td><input type="submit" value="리뷰쓰기"></td></tr>
-	</table>
-	
-	
-	
-	 --%>
+	   <!-- 여기부터 넣으시면 됩니다 Start -->
+   <div class="container mt-5">
+   <h2>나의 주문 정보</h2>   
+   </div>
+   <div class="container mt-5">
+
+   <table class="table">
+      <thead>
+       <tr>
+         <th scope="col">상품사진</th>
+         <th scope="col">상품명</th>
+         <th scope="col">상품수량</th>
+         <th scope="col">상품가격</th>
+         <th scope="col">배송여부</th>
+         <th scope="col">리뷰쓰기</th>
+       </tr>
+     </thead>
+     <tbody>
+ 		
+    
+      <c:forEach items="${list}" var="dto">
+         
+         <tr >
+      
+         <td><img src="${dto.pImg_main}" width="200"></td><!-- 상품사진 -->
+         
+         <td>${dto.pName}  </td><!-- 상품명 -->
+         
+         <td> ${dto.oQuantity }</td><!-- 상품수량 -->
+      
+         <td><h5><i class="fa-solid fa-won-sign"></i>${dto.oPrice } </h5></td><!-- 상품가격 -->
+         
+         <td><h5>${dto.oDecision }</h5></td><!-- 구매확정 -->
+         <td><a href="reviewWritepage.do?oCode=${dto.oCode}&pName=${dto.pName}">리뷰작성</a></td>
+   
+         </tr>
+     <%
+ 
+     String uId ="c";
+     session.setAttribute("UID",uId);
+     %>
+ 
+         </c:forEach> 
+      
+      </tbody>
+   </table>
+</div>
+<div class="row" style="margin-top: 5rem; marign-bottom : 5rem;">
+               <nav aria-label="Page navigation example">
+                 <ul class="pagination justify-content-center">
+                   <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Previous">
+                       <span aria-hidden="true">&laquo;</span>
+                     </a>
+                   </li>
+                   <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                   <li class="page-item"><a class="page-link" href="#">2</a></li>
+                   <li class="page-item"><a class="page-link" href="#">3</a></li>
+                   <li class="page-item"><a class="page-link" href="#">4</a></li>
+                   <li class="page-item"><a class="page-link" href="#">5</a></li>
+                   <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Next">
+                       <span aria-hidden="true">&raquo;</span>
+                     </a>
+                   </li>
+                 </ul>
+               </nav>
+            </div>
+   
+   <!-- End -->
 	
 	<!-- End -->
 	
